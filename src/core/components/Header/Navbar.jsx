@@ -82,7 +82,7 @@ const Navbar = () => {
 
       <NavbarSearch />
 
-      <div>{screenSize.isMobile ? <LuUserRoundCheck size={21} className="ml-2" /> : <NavbarActions />}</div>
+      <div>{screenSize.isMobile ? <LuUserRoundCheck size={21} className="ml-2"/> : <NavbarActions />}</div>
     </nav>
   );
 };

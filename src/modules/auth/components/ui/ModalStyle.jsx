@@ -6,7 +6,7 @@ const ModalStyle = forwardRef(({ children, ask, method, onMethodClick }, ref) =>
       ref={ref}
       className="bg-white grid grid-cols-1 lg:grid-cols-2 w-11/12 max-w-6xl h-auto min-h-11/12 rounded-2xl shadow-2xl overflow-hidden"
     >
-      {/* Left */}
+      {/* Logo */}
       <div className="bg-gray-100 p-8 sm:p-12 flex flex-col justify-between relative h-full">
         <div className="flex text-xl mb-4">Welcome!</div>
         <img
@@ -25,7 +25,7 @@ const ModalStyle = forwardRef(({ children, ask, method, onMethodClick }, ref) =>
         </div>
       </div>
 
-      {/* Right */}
+      {/* Content */}
       <div className="p-8 sm:p-12 flex flex-col justify-center overflow-y-auto scroll-smooth">
         {children}
       </div>
@@ -34,3 +34,4 @@ const ModalStyle = forwardRef(({ children, ask, method, onMethodClick }, ref) =>
 });
 
 export default React.memo(ModalStyle);
+

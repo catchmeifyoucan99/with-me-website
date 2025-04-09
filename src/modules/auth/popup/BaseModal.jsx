@@ -50,10 +50,6 @@ const BaseModal = ({ children, title, ask, method, onMethodClick, className}) =>
     };
   }, [isOpen, handleClickOutside]);
 
-  const handleCloseModal = () => {
-    dispatch(closeModal());
-  }
-
   if (!isOpen) return null;
 
   return (
@@ -62,13 +58,11 @@ const BaseModal = ({ children, title, ask, method, onMethodClick, className}) =>
         <span className="flex text-xl font-medium mb-9">{title}</span>
         {children}
 
-        <CloseButtonModal
-          className={`fixed transition-all duration-300 ${
+        <CloseButtonModal className={`fixed transition-all duration-300 ${
             screenSize.closeButtonInside
               ? 'top-9 right-4 bg-black hover:bg-black/80 text-white'
               : 'right-9 bottom-10 bg-white/80 hover:bg-white text-black'
           }`}
-          onClick={handleCloseModal}
         />
       </ModalStyle>
     </div>
