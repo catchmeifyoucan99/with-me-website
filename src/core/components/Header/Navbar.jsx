@@ -8,6 +8,8 @@ import { LuUserRoundCheck } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { debounce } from "lodash";
 import clsx from "clsx";
+import useModal from '../../hooks/auth/useModal.js';
+import LoginModal from '../../../modules/auth/popup/LoginModal.jsx';
 
 const Navbar = () => {
   const [screenSize, setScreenSize] = useState({
@@ -16,6 +18,7 @@ const Navbar = () => {
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, modalType, showModal} = useModal();
 
   // responsive
   useEffect(() => {
@@ -82,7 +85,8 @@ const Navbar = () => {
 
       <NavbarSearch />
 
-      <div>{screenSize.isMobile ? <LuUserRoundCheck size={21} className="ml-2"/> : <NavbarActions />}</div>
+      <div>{screenSize.isMobile ? <LuUserRoundCheck size={21} className="ml-2" onClick={() =>showModal('login')}/> : <NavbarActions />}</div>
+      {isOpen && modalType === 'login' && <LoginModal authMethodChange={() => showModal('register')} />}
     </nav>
   );
 };
